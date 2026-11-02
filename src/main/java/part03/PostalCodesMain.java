@@ -58,7 +58,7 @@ public class PostalCodesMain {
             // Tulostetaan nousevassa järjestyksessä
             Collections.sort(matchingCodes);
             for (String code : matchingCodes) {
-                System.out.println(code);
+                System.out.println(String.join(" ", matchingCodes));
             }
         }
 
