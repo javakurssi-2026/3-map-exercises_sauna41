@@ -42,7 +42,6 @@ public class PostalCodesMain {
         Map<String, String> postalCodes = PostalCodesReader.readPostalCodes();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Input postal code or district (e.g., 00100 or Helsinki): ");
         String answer = scanner.nextLine(); // answer may be a postal code or a postal district name
 
          // 1) Onko syöte postinumero? (tarkka osuma avaimesta)
