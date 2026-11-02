@@ -1,5 +1,8 @@
 package part03;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -42,7 +45,23 @@ public class PostalCodesMain {
         System.out.print("Input postal code or district (e.g., 00100 or Helsinki): ");
         String answer = scanner.nextLine(); // answer may be a postal code or a postal district name
 
-        // TODO: Implement your logic here
+         // 1) Onko syöte postinumero? (tarkka osuma avaimesta)
+        if (postalCodes.containsKey(answer)) {
+            System.out.println(postalCodes.get(answer));
+        } else {
+            // 2) Muuten etsitään postitoimipaikkaa kirjainkoosta riippumatta
+            List<String> matchingCodes = new ArrayList<>();
+            for (Map.Entry<String, String> entry : postalCodes.entrySet()) {
+                if (entry.getValue().equalsIgnoreCase(answer)) {
+                    matchingCodes.add(entry.getKey());
+                }
+            }
+            // Tulostetaan nousevassa järjestyksessä
+            Collections.sort(matchingCodes);
+            for (String code : matchingCodes) {
+                System.out.println(code);
+            }
+        }
 
         scanner.close();
     }
